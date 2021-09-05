@@ -5,7 +5,7 @@ struct Node
 {
     int Data;
     Node *Next;
-} *Head = NULL, *Last = NULL;
+} *Head = NULL, *Last2 = NULL;
 
 void Display(Node *p)
 {

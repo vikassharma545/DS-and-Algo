@@ -7,23 +7,29 @@ struct Node
     Node *Next;
 } *Head = NULL, *Last2 = NULL;
 
-int Add(struct Node *p) // Iteration type
+void Display(Node *p)
 {
-    int sum = 0;
-    while (p)
+    Node *temp = p;
+    while (temp)
     {
-        sum = sum + p->Data;
-        p = p->Next;
+        cout << temp->Data << " ";
+        temp = temp->Next;
     }
-    return sum;
+    cout << endl;
 }
 
-int AddR(struct Node *p) // Recurtion type
+bool Check_Sorted(Node *p)
 {
-    if (p)
-        return AddR(p->Next) + p->Data;
-    else
-        return 0;
+    int temp = INT8_MIN;
+
+    while (p)
+    {
+        if (p->Data < temp)
+            return false;
+        temp = p->Data;
+        p = p->Next;
+    }
+    return true;
 }
 
 int main()
@@ -46,6 +52,10 @@ int main()
         }
     }
 
-    cout << "Sum : " << Add(Head) << endl;
-    cout << "Sum : " << AddR(Head) << endl;
+    if (Check_Sorted(Head))
+        cout << "Linked list is sorted " << endl;
+    else
+        cout << "Not Sorted !!!" << endl;
+
+    return 0;
 }

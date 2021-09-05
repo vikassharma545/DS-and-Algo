@@ -9,7 +9,7 @@ struct Node
 {
     int Data;
     Node *Next;
-} *Head = NULL, *Last = NULL;
+} *Head = NULL, *Last2 = NULL;
 
 void Display(Node *p)
 {
@@ -109,11 +109,11 @@ int main()
         cin >> Temp->Data;
         Temp->Next = NULL;
         if (Head == NULL)
-            Head = Last = Temp; // -> initial last node is Head Node
+            Head = Last2 = Temp; // -> initial last node is Head Node
         else
         {
-            Last->Next = Temp;
-            Last = Temp;
+            Last2->Next = Temp;
+            Last2 = Temp;
         }
     }
 
