@@ -1,0 +1,27 @@
+// Queue working on principal FIFO --->  First-In  First-Out
+// insert at end and delete from front
+
+
+// Queue using single pointer caller rear
+// intially rear index -1
+// insert : increase rear by one index and assign value -->>  time O(1) constant
+// delete : delete index-0 element and swap all element backword and decrease rear -->> time O(n) order of n
+
+
+// Queue using two pointer front and rear
+// intially front = rear = -1
+// insert : increase rear by one index and assign value -->>  time O(1) constant
+// delete : delete index-0 element move front forward -->> time O(1) constant
+// can only use one location at one time -->  demerit
+
+// drawback Queue using array
+// one index use at one time
+// front at any position and rear at last position show queue is full    --->> (problem 3)
+// when rear and front at last index situation of both full and empty fullfill
+// solution --> reset pinter if rear == fast (not a solve problem 3)
+
+
+// circular Queue
+// best
+// solution of everything
+// take one element less than queue size --> Noted
