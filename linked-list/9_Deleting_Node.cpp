@@ -33,6 +33,48 @@ int Count(Node *p)
     return count;
 }
 
+void Delete_first(Node **Head_ref)
+{
+    if (*Head_ref)
+    {
+        cout << "Deleting... first node" << endl;
+        Node *temp = (*Head_ref);
+        (*Head_ref) = (*Head_ref)->Next;
+        delete temp;
+    }
+    else
+    {
+        cout << "Linked list empty !! unable to delete" << endl;
+    }
+}
+
+void Delete_last(Node **Head_ref)
+{
+    if (*Head_ref)
+    {
+        cout << "Deleting... Last Node" << endl;
+        Node *temp = (*Head_ref);
+        Node *tail_ptr = NULL;
+
+        while (temp->Next)
+        {
+            tail_ptr = temp;
+            temp = temp->Next;
+        }
+
+        if (tail_ptr)   
+            tail_ptr->Next = NULL; // it is neccessary to make last->next = NULL otherwise give garbage value
+        else                        
+            *Head_ref = NULL;   // execute when only one pointer left
+
+        delete temp;
+    }
+    else
+    {
+        cout << "Linked list empty !! unable to delete" << endl;
+    }
+}
+
 void Delete(Node **head_reference, int index)
 {
     Node *temp = new Node;
@@ -119,9 +161,14 @@ int main()
 
     Display(Head);
     Delete(&Head, 5);
+    Display(Head);
     Delete_By_Data(&Head, 5);
+    Display(Head);
     Delete_By_Data(&Head, 6);
     Display(Head);
-
+    Delete_first(&Head);
+    Display(Head);
+    Delete_last(&Head);
+    Display(Head);
     return 0;
 }

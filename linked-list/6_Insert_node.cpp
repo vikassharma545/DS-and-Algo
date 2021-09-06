@@ -53,19 +53,8 @@ void Insert_after_index(Node *head_reference, int index, int data) // pointer pa
     q->Data = data;
 
     //procedure
-    q->Next = temp->Next;
-    temp->Next = q;
-}
-
-int Count(Node *p)
-{
-    int count = 0;
-    while (p != NULL)
-    {
-        count++;
-        p = p->Next;
-    }
-    return count;
+    q->Next = temp->Next;   // it also work on last index because that time temp-> point to last node i.e temp->next = NULL
+    temp->Next = q;         // so it work like a q->next = NULL 
 }
 
 void Insert_At_Last(Node *head_reference, int data)
@@ -73,19 +62,20 @@ void Insert_At_Last(Node *head_reference, int data)
     cout << "Inserting... " << data << ", At Last" << endl;
 
     // create a node for tranverse
-    Node *temp = new Node;
+    Node *temp = head_reference;
 
     //tranverse to last index
-    temp = head_reference;
-    for (int i = 0; i < Count(head_reference) - 1; i++) // you can use Last pointer instead of tranverse for save time
+    while (temp->Next) // you can use Last pointer instead of tranverse for save time
+    {
         temp = temp->Next;
+    }
 
     // create a Node
     Node *q = new Node;
     q->Data = data;
+    q->Next = NULL;
 
     //procedure
-    q->Next = temp->Next;
     temp->Next = q;
 }
 
@@ -113,11 +103,11 @@ int main()
         }
     }
 
-    Insert_At_first(Head, 10);  // insert at index zero
+    Insert_At_first(Head, 10); // insert at index zero
 
-    Insert_after_index(Head, 0, 66);  // insert after index zero
+    Insert_after_index(Head, 0, 66); // insert after index zero
 
-    Insert_At_Last(Head, 66);   // insert at last
+    Insert_At_Last(Head, 66); // insert at last
 
     Display(Head);
 
