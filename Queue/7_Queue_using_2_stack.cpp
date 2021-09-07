@@ -31,24 +31,13 @@ public:
     }
 
     bool isEmpty(); //--> if top is null
-    bool isFull();  //-->  linked list stack only full when heap memory is full i.e unable to create any pointer
     void Push(int data);
     int Pop();
-    int Peek(int position);
-    int Top();
 };
 
 bool Stack ::isEmpty()
 {
     return (this->top == NULL) ? true : false;
-}
-
-bool Stack ::isFull()
-{
-    Node *temp = new Node;
-    bool b = (temp == NULL) ? true : false;
-    delete temp;
-    return b;
 }
 
 void Stack ::Push(int data) // work even with stack is empty
@@ -81,41 +70,72 @@ int Stack ::Pop()
     return retrn;
 }
 
-int Stack ::Peek(int position)
+class Queue
 {
-    Node *temp = this->top;
+private:
+    Stack s1;
+    Stack s2;
 
-    for (int i = 0; i < position - 1 && temp != NULL; i++)
-        temp = temp->next;
+public:
+    bool isEmpty()
+    {
+        if (this->s1.isEmpty() && this->s2.isEmpty())
+            return true;
+        else
+            return false;
+    }
 
-    if (temp)
-        return temp->data;
-    return -1;
-}
+    void enqueue(int data)
+    {
+        s1.Push(data);
+    }
 
-int Stack ::Top()
-{
-    return (this->top != NULL) ? this->top->data : -1;
-}
+    int dequeue()
+    {
+        int x = -1;
+
+        if (s2.isEmpty())
+        {
+            if (s1.isEmpty())
+            {
+                cout << "Queue Empty !!" << endl;
+                return x;
+            }
+            else
+            {
+                while (!s1.isEmpty())
+                {
+                    s2.Push(s1.Pop());
+                }
+            }
+        }
+        return s2.Pop();
+    }
+};
 
 int main()
 {
-    Stack s;
-    s.Push(10);
-    s.Push(20);
-    s.Push(30);
-    s.Push(40);
-    s.Push(50);
-    s.Push(60);
-    s.Pop();
-    s.Pop();
-    s.isEmpty();
-    s.isFull();
+    Queue obj;
 
+    obj.enqueue(10);
+    obj.dequeue();
+    obj.enqueue(20);
+    obj.enqueue(30);
+    obj.dequeue();
+    obj.enqueue(40);
+    obj.enqueue(50);
+    obj.dequeue();
+    obj.enqueue(60);
+    obj.enqueue(70);
+    obj.dequeue();
+    obj.enqueue(80);
+    obj.enqueue(90);
+    obj.dequeue();
+    obj.enqueue(100);
 
-    while (!s.isEmpty())
+    while (!obj.isEmpty())
     {
-        cout << s.Pop() << " ";
+        cout << obj.dequeue() << endl;
     }
 
     return 0;

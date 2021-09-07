@@ -1,3 +1,5 @@
+// using array
+// size of queue = size of array - 1
 #include <iostream>
 using namespace std;
 
