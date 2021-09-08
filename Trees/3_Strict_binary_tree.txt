@@ -1,0 +1,32 @@
+//strict binary tree also known as complete binary tree or proper binary tree
+
+strinct binary tree either have zero child or 2 child 
+but not have 1 child  --> important
+
+
+
+
+
+// height vs nodes
+
+if height is given
+
+    Min nodes = 2h+1
+
+    Max nodes = 2^h+1 -1
+
+
+if Nodes is given
+
+    Min height = (log base2)(n+1) -1
+
+    max height = n-1/2
+
+
+
+
+
+
+// Internal and external nodes
+
+    external nodes = Internal nodes + 1    always true

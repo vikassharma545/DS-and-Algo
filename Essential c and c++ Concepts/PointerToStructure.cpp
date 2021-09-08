@@ -11,7 +11,7 @@ int main()
 {
     Rectangle R1;
 
-    Rectangle *R2;  // pointer of structure type
+    Rectangle *R2;  // pointer of structure type only it not create a dynamically location of variables inside struct  
 
     R2 = &R1;       // assign address of R1 to pointer R2
 
@@ -28,10 +28,10 @@ int main()
 
     // Create Structure in heap memory using pointer
 
-    Rectangle * R3 = new Rectangle;
-
-    R3->Length = 5;
-    R3->Breath = 15;
+    Rectangle * R3 = new Rectangle;  // this method also applicable for c++ class 
+                                    // without 'new' keyword you can only crete a pointer but not a dynamic lacotion (space) 
+    R3->Length = 5;                 // of variable inside memory
+    R3->Breath = 15;                // when we use 'new' it also execute constructor of class and assign memory of class variables
 
     cout<<R3->Length<<endl;
     cout<<R3->Breath<<endl;

@@ -1,0 +1,63 @@
+// Binary Tree : tree having degree 2 or less then 2
+// childrens numbers 0 ,1 or 2 only
+
+
+// Numbers of Binary Trees by given Node 'n'
+
+  T(3) = 5
+  T(4) = 14
+  T(5) = ?
+
+  Formula-->    T(n)   =   (2nCn) / (n+1)     known as Catalan number
+
+
+
+
+// Max height of Binary tree by given node 'n'
+
+    Max height = 2^n-1
+
+
+
+
+//  Catalan number another Formula
+
+              n
+    T(n) =  sigma  T(i-1) * T(n-i)
+             i=i
+
+
+
+
+// number of binary tree with different labels
+
+    T(n) = ( 2nCn / (n+1) ) *  n!
+                /               \
+            for shapes        for different label permutation
+
+
+
+// Min and Max height of binary tree in given nodes
+
+    Min height = (log base 2)(n+1) - 1
+
+    Max height = n-1
+
+
+
+
+// Min and max numbers of nodes in given height
+
+    Min nodes = h+1
+
+    max node = 2^h+1 - 1
+
+
+
+// Degree relation
+
+    number of node of degree (0) = number of node of degree (2)  + 1
+    
+    (always true)
+
+    

@@ -54,19 +54,24 @@ void Delete_last(Node **Head_ref)
     {
         cout << "Deleting... Last Node" << endl;
         Node *temp = (*Head_ref);
-        Node *tail_ptr = NULL;
 
-        while (temp->Next)
+        if (temp->Next == NULL) // execute when only one pointer left
         {
-            tail_ptr = temp;
-            temp = temp->Next;
+            *Head_ref = NULL;
         }
+        else
+        {
+            Node *tail_ptr = NULL;
 
-        if (tail_ptr)   
+            while (temp->Next)
+            {
+                tail_ptr = temp;
+                temp = temp->Next;
+            }
+
             tail_ptr->Next = NULL; // it is neccessary to make last->next = NULL otherwise give garbage value
-        else                        
-            *Head_ref = NULL;   // execute when only one pointer left
-
+        }
+        
         delete temp;
     }
     else
@@ -168,6 +173,16 @@ int main()
     Display(Head);
     Delete_first(&Head);
     Display(Head);
+    Delete_last(&Head);
+    Delete_last(&Head);
+    Delete_last(&Head);
+    Delete_last(&Head);
+    Delete_last(&Head);
+    Delete_last(&Head);
+    Delete_last(&Head);
+    Delete_last(&Head);
+    Delete_last(&Head);
+    Delete_last(&Head);
     Delete_last(&Head);
     Display(Head);
     return 0;

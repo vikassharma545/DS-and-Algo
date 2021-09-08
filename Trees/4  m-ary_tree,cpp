@@ -1,0 +1,54 @@
+// m-ary tree  : degree is between 0 to max
+
+else we say ->  numbers of chilrens can be 0,1,2,3,....m
+
+Ex- for 3-ary tree 
+child = {0,1,2,3}
+
+Ex- for 4-ary tree
+child = {0,1,2,3,4}
+
+
+
+
+
+
+// strict m-ary tree : degree either be zero or m not any other
+
+else we can say->  numbers of chilrens can be only 0,m
+
+Ex- strict 3-ary tree
+child = {0,3}
+
+Ex- strict 4-ary tree
+child = {0,4}
+
+
+
+
+
+// Node vs Height
+
+if Height is given
+
+    Min node = mh + 1
+
+    Max node =  (m^h+1 + 1) / (m-1)
+
+
+if Node are given
+
+    Min height =  (log base m)(n *(m-1))  -1
+
+    Max height =  (n-1) / m
+
+
+
+
+
+// internal and external Nodes
+
+
+    external node =  ((m-1) * internal node) + 1
+
+    always true//

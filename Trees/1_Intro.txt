@@ -1,0 +1,40 @@
+ Tree : Tree is collection of nodes and edeges
+
+              Height                                          Levels
+                0                    |A|                        1
+                                 /    |    \
+                1              |B|   |C|     |D|                2
+                             /   \        /   |   \  
+                2          |E|   |F|     |G| |H| |I|            3                         
+                                /   \         |
+                3             |J|   |K|      |L|                5
+                               |            /   \ 
+                4             |M|         |N|   |O|             6                
+
+
+
+Root --->           |A| is called root of Tree
+
+Parent  -->         |B| is Parent of |E| and |F| , |L| is parent of |N| and |D|
+
+Child -->           |E| and |F| is child of |B|,   |G| |H| |I| is Child of |D|
+
+Siblings  -->       |G| |H| |I| is siblings of each other i.e child of same parent
+
+Descendents  -->    all node below that node   Ex- for |B| ->  |E| |F| |J| |K| |M| is decendents
+
+Ancestors -->       all node from that node to root node   Ex- for |M| -> |J| |F| |B| |A| is ancestors    
+
+degree -->          no of attach node downward    Ex- |B| have 2 degree,   |D| has 3 degree
+
+Leaf, external, terminal node  -->              Node having degree zero
+
+non leaf, internal, non terminal node -->       Node having degree greater then zero
+
+Levels  -->  start from 1 onword    i.e count nodes downward
+
+Height  --> start from 0 onword     i.e count edges downward
+
+Forest  --> collection of different trees
+
+

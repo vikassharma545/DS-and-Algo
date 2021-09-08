@@ -1,0 +1,38 @@
+//  Sparse Matrix
+
+//    Matrix which have max number of zero elements
+
+
+// three column representation
+
+        |    row    |   column   |   elements  |
+total ->      8           9             72
+
+              1           8              3
+              2           3              8
+              2           6              10  
+              4           1              4
+              6           3              2
+              7           4              6
+              8           2              9
+              8           5              5
+
+out of 72 only 8 non zero elements required
+
+
+// Compressed sparse row representation using three array
+
+    array of elements = {3,8,10,4,2,6,9,5}
+    
+    array of rows = {0,1,3,3,4,4,5,6,8}   intially value zero next is sum of elements in next row
+
+    array of column = {8,3,6,1,3,4,2,5}
+
+
+// why sparse Matrix ??
+
+matrix size = 8 * 9 * 4bytes = 288 bytes need
+
+using sparse matrix = (8 + 9 + 8) * 4bytes = 108bytes
+
+conclution :- save (288 - 108) = 108bytes space
