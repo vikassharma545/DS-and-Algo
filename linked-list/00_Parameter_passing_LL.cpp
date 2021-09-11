@@ -1,3 +1,4 @@
+// read it after or with programs 6 to 9 for better understanding
 #include <iostream>
 using namespace std;
 
