@@ -10,6 +10,13 @@ struct Node
 void Display_Transverse(Node *p)
 {
     Node *temp = p;
+
+    if (!temp)
+    {
+        cout << "Linked List Empty !!" << endl;
+        return;
+    }
+
     do // traverse, upto temp not equal to head
     {  // use do while so it start from true
         cout << temp->Data << " ";
@@ -41,8 +48,8 @@ int length(Node *p)
 
     do
     {
-        temp = temp->Next;
         count++;
+        temp = temp->Next;
     } while (temp != p);
 
     return count;
@@ -56,17 +63,17 @@ void Insert(Node *&p, int index, int data)
         return;
     }
 
-    Node *temp = new Node;
-    temp->Data = data;
-    temp->Next = NULL;
+    Node *new_node = new Node;
+    new_node->Data = data;
+    new_node->Next = NULL;
     Node *traverse = p;
 
     if (index == 0)
     {
-        if (p == NULL)
+        if (p == NULL) // if linked list is empty
         {
-            p = temp;
-            p->Next = p; // because it circular it point itself
+            p = new_node;
+            p->Next = p; // because it circular it point itself initially
         }
         else
         {
@@ -74,115 +81,100 @@ void Insert(Node *&p, int index, int data)
             {
                 traverse = traverse->Next;
             }
-            traverse->Next = temp; // last node next = new node
-            temp->Next = p;        // new node next = first node
+
+            traverse->Next = new_node; // last node next = new node
+            new_node->Next = p;        // new node next = first node
 
             // apply if you want make new node first other wise it become last ( no effect)
-            p = temp; // first node pointer = new node
+            p = new_node; // now head node change to = new node
         }
     }
     else
     {
         for (int i = 0; i < index - 1; i++)
         {
-            traverse = traverse->Next;
+            traverse = traverse->Next; // traverse to that node, after given index came
         }
 
-        temp->Next = traverse->Next;
-        traverse->Next = temp;
+        new_node->Next = traverse->Next;
+        traverse->Next = new_node;
     }
 }
 
 int Delete(Node *&p, int index)
 {
     int retrn = -1;
-    
+
     if (index <= 0 || index > length(p)) // if index is less then zero or greater then  number of nodes (elements)
     {
         cout << "Invalid index" << endl;
         return retrn;
     }
 
-
     Node *temp = p;
     Node *front_tail;
 
     if (index == 1) // index 1 --> first node
     {
+        retrn = p->Data;
 
-        while (temp->Next != p)
+        if (temp->Next == p)
         {
-            temp = temp->Next;
-        }
-
-        if (temp == p)
-        {
-            retrn = p->Data;
             delete p;
-            p = NULL;
-            return retrn;
+            p = NULL; // need to be Null otherwise garabge value stored
         }
         else
         {
-            temp->Next = p->Next;
-            retrn = p->Data;
-            delete p;
-            p = temp->Next;
-            return retrn;
+            while (temp->Next != p) // traverse upto last node
+            {
+                temp = temp->Next;
+            }
+
+            temp->Next = p->Next; // last node next = first node next
+            delete p;             // delete first node
+            p = temp->Next;       // move first node forward (i.e after last node)
         }
+
+        return retrn;
     }
     else
     {
         for (int i = 0; i < index - 2; i++)
         {
-            temp = temp->Next;
+            temp = temp->Next; // traverse upto one node before deleting node
         }
 
         front_tail = temp->Next;
         temp->Next = front_tail->Next;
         retrn = front_tail->Data;
         delete front_tail;
-        front_tail = NULL;
+
+        // you can also use this method
+        // Node *tail_ptr = NULL;
+        // for (int i = 0; i < index - 1; i++)
+        // {
+        //     tail_ptr = temp;
+        //     temp = temp->Next;
+        // }
+        // tail_ptr->Next = temp->Next;
+        // retrn = temp->Data;
+        // delete temp;
+
         return retrn;
     }
 }
 
 int main()
 {
-    // create linked list
-
-    // Node *Temp = NULL;
-
-    // for (int i = 0; i < 10; i++) // size of linked list --> 10
-    // {
-    //     Temp = new Node;
-    //     cin >> Temp->Data;
-    //     Temp->Next = NULL;
-    //     if (Head == NULL)
-    //         Head = Last = Temp; // -> initial last node is Head Node
-    //     else
-    //     {
-    //         Last->Next = Temp;
-    //         Last = Temp;
-    //     }
-    // }
-
-    // Last->Next = Head; /// it make linear list into circular linked list
-
     Insert(Head, 0, 10);
     Insert(Head, 1, 20);
     Insert(Head, 2, 30);
     Insert(Head, 3, 40);
     Insert(Head, 4, 50);
 
-    Delete(Head,1);
-    Delete(Head,4);
-    // Insert(Head, 7, 30);
-    // Insert(Temp,0,10);
-    // Insert(Temp,0,10);
-    // Insert(Temp,0,10);
-    // Insert(Temp,0,10);
-    // Insert(Temp,0,10);
+    Delete(Head, 2);
+
     Display_Transverse(Head);
+
     // Display_Recursion(Head);
 }
