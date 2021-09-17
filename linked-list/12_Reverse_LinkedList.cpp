@@ -1,5 +1,5 @@
 // two ways
-// 1. by reversing element only, node will be same throw swaping
+// 1. by reversing element only, node will be same through creating a temporary array
 // 2. by reversing links
 
 #include <iostream>
@@ -55,21 +55,26 @@ void Reverse_element(Node *p)
     delete[] arr;
 }
 
+
 void Reverse_Linking(Node *&head_ref)
 {
-    Node *p = head_ref;
-    Node *q = NULL;
-    Node *r = NULL;
+    // Initially Sliding Pointers
+    Node *p = head_ref; // First pointer
+    Node *q = NULL;     // Middle pointer
+    Node *r = NULL;     // Last pointer
 
     while (p)
     {
+        // sliding as usual
         r = q;
         q = p;
         p = p->Next;
-        q->Next = r;
+
+        // point middle next to last
+        q->Next = r; 
     }
 
-    head_ref = q;
+    head_ref = q; // at lastly head = middle;
 }
 
 void Reverse_Linking_recursion(Node *q, Node *p)
