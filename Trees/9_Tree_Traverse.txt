@@ -1,0 +1,30 @@
+Traverse Tree 4 ways ...
+
+1. Preorder : visit(node), preorder(left subtree), preorder (right subtree)
+
+2. Inorder : Inorder(left), visit(node), Inorder(right)
+
+3. Postorder : Postorder(left), Postorder(right), visit(node)
+
+4. Level order : Level by Level
+
+
+                        |A|                          |A|                     |A|
+                       /   \                         /                          \
+                    |B|     |C|                    |B|                          |B|
+
+
+preorder    :         A, B, C                     A, B                      A, B               
+Inorder     :         B, A, C                     B, A                      A, B
+Postorder   :         B, C, A                     B, A                      B, A
+Level order :         A, B, C                     A, B                      A, B
+
+
+                    |A|              Preorder : A(B,D,E)(C,F,G) 
+                  /     \               
+               |B|       |C|         Inorder :  (D,B,E),A,(F,C,G) 
+              /   \     /   \               
+            |D|   |E|  |F|  |G|      Postorder : (D,E,B),(F,G,C),A
+
+
+    Level order : A,B,C,D,E,F,G
