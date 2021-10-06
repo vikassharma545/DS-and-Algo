@@ -1,0 +1,32 @@
+two ways
+1. Array representation
+2. Linked Listed representation
+
+Array representation
+
+                    |A|
+                  /     \
+               |B|       |C|
+              /   \     /   \
+            |D|   |E|  |F|  |G|
+
+
+Array -> |A|B|C|D|E|F|G|      --> element store Levels wise
+index ->  1 2 3 4 5 6 7 
+
+analyse
+
+    element     index     Lchild    Rchild
+      |A|         1         2          3
+      |B|         2         4          5
+      |C|         3         6          7
+      -------------------------------------
+                  i        2*i      2i + 1
+
+if element at index i then
+left child at index 2*i 
+right child at index 2*i + 1 
+
+parent of given index i 
+parents at index [i/2] --> floor value, (like if 3.5 came we consider it 3 )
+

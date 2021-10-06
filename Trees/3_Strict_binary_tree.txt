@@ -20,7 +20,7 @@ if Nodes is given
 
     Min height = (log base2)(n+1) -1
 
-    max height = n-1/2
+    max height = (n-1)/2
 
 
 

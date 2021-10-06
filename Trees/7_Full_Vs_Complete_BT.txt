@@ -1,0 +1,35 @@
+Full binary tree :   binary tree of height h having maximum number of tree
+
+                                    height
+                    |A|               0
+                  /     \                       ---> Full binary tree
+               |B|       |C|          1  
+              /   \     /   \                   ---> Complete binary tree (always)
+            |D|   |E|  |F|  |G|       2
+
+    Array ->  |A|B|C|D|E|F|G|
+    index ->   1 2 3 4 5 6 7 
+
+Complete binary tree :  upto (h-1) height it will be full binary tree  and at last level element
+                        will filled from left to right without skiping any element
+
+                                    height
+                    |A|               0
+                  /     \                         ---->  Complete binary tree
+               |B|       |C|          1          
+              /   \     /                         ---->  Not a Full binary tree
+            |D|   |E|  |F|            2
+
+    Array ->  |A|B|C|D|E|F| |
+    index ->   1 2 3 4 5 6 7 
+
+
+                                    height
+                    |A|               0
+                  /     \                        ---> Not full binary tree
+               |B|       |C|          1  
+              /             \                    ---> not Complete binary tree 
+            |D|             |E|       2
+
+    Array ->  |A|B|C|D| | |E|
+    index ->   1 2 3 4 5 6 7 

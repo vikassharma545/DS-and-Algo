@@ -1,0 +1,12 @@
+we not say Linked list representation because it not a list (linear)
+
+    Node representation -->    | Right child | Data | Left child |
+
+    class Node
+    {
+        Node * Lchild;
+        int data;
+        Node * Rchild;
+    };
+
+Noted:  when node is n then n+1 Null pointer in trees

@@ -1,0 +1,37 @@
+Strict binary tree : every node having child 0 or 2 only
+
+                                    height
+                    |A|               0
+                  /     \                       ---> Strict binary tree
+               |B|       |C|          1  
+                        /   \                   ---> Not Complete binary tree                  
+                       |E|  |F|       2
+
+    Array ->  |A|B|C| | |E|F|
+    index ->   1 2 3 4 5 6 7 
+
+
+Complete binary tree :  upto (h-1) height it will be full binary tree  and at last level element
+                        will filled from left to right without skiping any element
+
+                                    height
+                    |A|               0
+                  /     \                         ---->  Complete binary tree
+               |B|       |C|          1          
+              /   \                               ---->  Strict binary tree
+            |D|   |E|                 2
+
+    Array ->  |A|B|C|D|E| | |
+    index ->   1 2 3 4 5 6 7 
+
+
+                                    height
+                    |A|               0
+                  /     \                         ---->  Complete binary tree
+               |B|       |C|          1          
+              /                                   ---->  Not Strict binary tree
+            |D|                       2
+
+    Array ->  |A|B|C|D| | | |
+    index ->   1 2 3 4 5 6 7 
+
