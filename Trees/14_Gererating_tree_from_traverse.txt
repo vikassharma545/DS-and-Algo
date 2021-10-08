@@ -1,0 +1,27 @@
+can we generate tree from traverse ??
+
+if given,
+
+case 1: preorder A,B,C
+
+    generate --> 2nCn/(n+1) tree having same preorder
+
+similarly for inorder and postorder
+
+
+case 2: if both preorder and postorder are given
+
+    preorder  -> A,B,C
+    postorder -> C,B,A
+
+    generate -> more then 1 tree having same order
+
+case 3: if with preorder or postorder is with inorder
+
+    preorder : A,B,C
+    inorder  : A,B,C 
+
+    generate -> unique tree
+
+    similarly for postorder and inorder
+
