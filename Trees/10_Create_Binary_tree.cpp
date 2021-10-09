@@ -56,14 +56,14 @@ void Create(Tree_Node *p)
     }
 }
 
-void Preorder(Tree_Node *p)
+void Inorder(Tree_Node *p)
 {
     if (p == NULL)
         return;
 
+    Inorder(p->Lchild);
     cout << p->data << " ";
-    Preorder(p->Lchild);
-    Preorder(p->Rchild);
+    Inorder(p->Rchild);
 }
 
 int main()
@@ -71,8 +71,8 @@ int main()
     root = new Tree_Node;
     Create(root);
 
-    cout << "Preorder" << endl;
-    Preorder(root);
+    cout << "Inorder" << endl;
+    Inorder(root);
     cout << endl;
 
     return 0;
