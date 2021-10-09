@@ -1,0 +1,21 @@
+Binary Search Tree : tree having left nodes is always less then its parents nodes   
+                     and right node child is greater then its parents node
+
+properties: 
+
+1. No dublicates
+
+2. Inorder representation is in sorted order
+
+3. No. of BST form from given node n is 2nCn/(n+1)
+
+
+                                    height
+                    |30|               0
+                  /      \                       ---> Binary Search Tree
+              |15|        |45|          1  
+             /   \       /   \                   
+          |10|   |20|  |40|  |50|       2
+
+
+    Inorder -> 10,15,20,30,40,45,50
