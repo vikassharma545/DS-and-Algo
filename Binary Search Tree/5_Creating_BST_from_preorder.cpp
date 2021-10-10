@@ -1,4 +1,3 @@
-// error
 #include <iostream>
 #include <stack>
 using namespace std;
@@ -28,14 +27,19 @@ void Inorder(Tree_Node *p)
     Inorder(p->Rchild);
 }
 
-void Preorder(Tree_Node *p)
+int height(Tree_Node *p)
 {
-    if (p == NULL)
-        return;
-
-    cout << p->data << " ";
-    Inorder(p->Lchild);
-    Inorder(p->Rchild);
+    int x, y;
+    if (p)
+    {
+        x = height(p->Lchild);
+        y = height(p->Rchild);
+        if (x > y)
+            return x + 1;
+        else
+            return y + 1;
+    }
+    return 0;
 }
 
 void CreatePre(int pre[], int n)
@@ -63,7 +67,7 @@ void CreatePre(int pre[], int n)
         }
         else
         {
-            if ((pre[i] > p->data) && (pre[i] < s.top()->data))
+            if ((pre[i] > p->data) && (pre[i] < s.empty() ? 32767 : s.top()->data))
             {
                 t = new Tree_Node;
                 t->data = pre[i++];
@@ -81,12 +85,11 @@ void CreatePre(int pre[], int n)
 
 int main()
 {
-    // int preorder[10] = {30, 20, 10, 15, 25, 40, 50, 45};
-    int preorder[8] = {30, 10, 20, 15, 5,1};
+    int preorder[10] = {30, 20, 10, 15, 25, 40, 50, 45};
 
-    CreatePre(preorder, 6);
-    // Preorder(root);
-    // cout<<endl;
+    CreatePre(preorder, 8);
     Inorder(root);
+    cout << endl;
+    cout << "Height = " << height(root) << endl;
     return 0;
 }
