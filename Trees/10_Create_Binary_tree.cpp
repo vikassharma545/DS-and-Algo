@@ -1,3 +1,6 @@
+// BInary Search Tree is creted with the help of queue
+
+
 #include <iostream>
 #include <queue>
 using namespace std;
@@ -23,13 +26,18 @@ void Create(Tree_Node *p)
 
     int x;
 
-    queue<Tree_Node *> q;
+    queue<Tree_Node *> q;   // queue of Tree Node type for storing pointer
 
+    // Initial Step
+    // create root node(already created in main function) or assing value and push into queue
     cout << "Entre root value : ";
     cin >> x;
-
     p->data = x;
     q.push(p);
+
+    // Repeating step
+    // while queue is not empty
+    // pop from queue assing their left and right child with pushing their pointer into queue
     while (!q.empty())
     {
         Ptr = q.front();

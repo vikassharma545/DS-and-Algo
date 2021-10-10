@@ -1,3 +1,5 @@
+// the procedure is same as like creating binary tree traverse using queue
+
 #include <iostream>
 #include <queue>
 using namespace std;
@@ -34,6 +36,7 @@ void Create(Tree_Node *p)
     {
         Ptr = q.front();
         q.pop();
+
         cout << "Entre left child of " << Ptr->data << " : ";
         cin >> x;
         if (x != -1)

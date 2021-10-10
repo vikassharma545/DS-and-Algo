@@ -1,3 +1,5 @@
+// Iterative Traverse is done by using stack (for Backtracking)
+
 #include <iostream>
 #include <stack>
 #include <queue>
@@ -77,6 +79,7 @@ void Iterative_Preorder1(Tree_Node *t)
         }
     }
 }
+
 void Iterative_Preorder2(Tree_Node *t)
 {
 
@@ -100,7 +103,7 @@ void Iterative_Preorder2(Tree_Node *t)
     }
 }
 
-void Iterative_Inorder1(Tree_Node *t)
+void Iterative_Inorder(Tree_Node *t)
 {
     stack<Tree_Node *> s;
 
@@ -121,30 +124,8 @@ void Iterative_Inorder1(Tree_Node *t)
     }
 }
 
-void Iterative_Inorder2(Tree_Node *t)
-{
-    stack<Tree_Node *> s;
-
-    while (t || (!s.empty()))
-    {
-        while (t)
-        {
-            s.push(t);
-            t = t->Lchild;
-        }
-
-        t = s.top();
-        s.pop();
-        cout << t->data << " ";
-        t = t->Rchild;
-    }
-}
-
 void Iterative_Postorder1(Tree_Node *t)
 {
-    if (t == NULL)
-        return;
-
     stack<Tree_Node *> s;
 
     do
@@ -160,7 +141,7 @@ void Iterative_Postorder1(Tree_Node *t)
         t = s.top();
         s.pop();
 
-        if (t->Rchild && (s.top() == t->Rchild))
+        if (!s.empty() && t->Rchild && (s.top() == t->Rchild))
         {
             s.pop();
             s.push(t);
@@ -179,7 +160,7 @@ void Iterative_Postorder2(Tree_Node *t)
 {
     stack<Tree_Node *> s;
 
-    while (true)
+    do
     {
         while (t)
         {
@@ -187,9 +168,6 @@ void Iterative_Postorder2(Tree_Node *t)
             s.push(t);
             t = t->Lchild;
         }
-
-        if (s.empty())
-            return;
 
         t = s.top();
         s.pop();
@@ -202,7 +180,7 @@ void Iterative_Postorder2(Tree_Node *t)
             cout << t->data << " ";
             t = NULL;
         }
-    }
+    }while (!s.empty());
 }
 
 int main()
@@ -216,16 +194,14 @@ int main()
     Iterative_Preorder2(root);
     cout << endl;
 
-    Iterative_Inorder1(root);
+    Iterative_Inorder(root);
     cout << endl;
 
-    Iterative_Inorder2(root);
+    Iterative_Postorder1(root);
     cout << endl;
 
     Iterative_Postorder2(root);
     cout << endl;
-    
-    Iterative_Postorder1(root);
 
     return 0;
 }
