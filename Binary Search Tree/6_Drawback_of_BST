@@ -1,0 +1,9 @@
+we cannot control the height of binary search tree it depend on the order of insertion of element
+
+like if we inserting 40,20,30,60,10,70 --> generate tree of height 2
+
+but for same element but different order 10,20,30,40,50,60,70 -> generate tree of height 6
+
+so we need some method ??
+
+the binary tree which self control its height tha called AVL tree

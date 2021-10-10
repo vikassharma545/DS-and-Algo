@@ -1,0 +1,8 @@
+AVL tree : Height Balanced Binary Search Tree
+
+Balanced Factor = height of left subtree - height of right subtree
+
+if |Balanced Factor| = |hl -hr| <= 1 ---> tree Balanced
+
+if |Balanced Factor| = |hl -hr| > 1 ---> tree not Balanced
+
