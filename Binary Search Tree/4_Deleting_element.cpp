@@ -90,9 +90,9 @@ Tree_Node *Delete(Tree_Node *p, int key)
     if (p == NULL)
         return NULL;
 
-    if (p->Lchild == NULL && p->Rchild == NULL)
+    if (p->Lchild == NULL && p->Rchild == NULL) // if it leaf node
     {
-        if (p == root)
+        if (p == root)  // if it root node
             root = NULL;
         free(p);
         return NULL;
@@ -131,7 +131,7 @@ int main()
     insert_iterative(root, 45);
     insert_iterative(root, 15);
     insert_iterative(root, 40);
-    Delete(root, 15);
+    Delete(root, 30);
 
     cout << "Inorder" << endl;
     Inorder(root);
