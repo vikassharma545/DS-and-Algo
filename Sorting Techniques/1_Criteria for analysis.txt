@@ -1,0 +1,40 @@
+Criteria for analysis which sorting is best ?
+
+1. Number of Comparison
+
+2. Number of Swaps
+
+3. Adaptive // if it already sorted it shoud take less time
+
+4. Extra Memory // Memory used for sorting
+
+5. Stable  // if it has dublicates (it preserve the order of arrangement of dublicates after sorted)
+    ex:-
+                Name - A B C D E F G        order of dublicates - C,E
+                Mark - 5 8 6 4 6 7 10   
+                
+                after sorted - 
+
+                Name - D A C E F B G        order of dublicates - C,E
+                Mark - 4 5 6 6 7 8 10
+
+
+                            |---
+                            |                        --        1. Bubble 
+                            |              O(n^2)    |         2. Insertion
+                            |                        --        3. Selection
+        Comparison Based    |
+            Sort            |                        --        4. Heap sort
+                            |                        |         5. Merge sort
+                            |            O(nlogn)    |         6. Quick sort
+                            |                        --        7. Tree sort
+                            |
+                            |            O(n^3/2)  --->        8. Shell sort
+                            |---
+
+                            |---
+        Index Based         |                        --        9. Count sort
+          Sort              |                O(n)    |         10. Bucket/Bin sort
+                            |                        --        11. Radix sort
+                            |---    
+
