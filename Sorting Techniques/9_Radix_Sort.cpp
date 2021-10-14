@@ -94,7 +94,7 @@ public:
     }
 };
 
-void Bin_Sort(int Array[], int size)
+void Radix_Sort(int Array[], int size)
 {
     Bucket *b = new Bucket(Array, size);
     int x;
@@ -139,7 +139,7 @@ int main()
     cout << "Before sorting " << endl;
     Print(arr, size);
 
-    Bin_Sort(arr, size);
+    Radix_Sort(arr, size);
 
     cout << "\nAfter sorting " << endl;
     Print(arr, size);

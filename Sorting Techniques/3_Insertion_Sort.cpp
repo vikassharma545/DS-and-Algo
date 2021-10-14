@@ -19,7 +19,7 @@
                             no of comparison = 1
         |5|8|7|3|2|         no of swap = 1
 
-    2nd pass - inserting 5
+    2nd pass - inserting 7
    
         |5|8| |3|2|
                             no of comparison = 2
@@ -31,7 +31,7 @@
                             no of comparison = 3
         |3|5|7|8|2|         no of swap = 3
 
-    4th pass - inserting 5
+    4th pass - inserting 2
    
         |3|5|7|8| |
                             no of comparison = 4

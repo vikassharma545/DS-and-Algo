@@ -1,10 +1,10 @@
 /*
-    the average time complexity of quick shot = O(nlogn) that one of the reason 
+    the average time complexity of quick shot = O(nlogn) that one of the reason
     it consider best sorting algorith and fastest algorithm
 
     why called quick sort -> thats not mean its name is quick so it sort faster
-                            the element arrange them themselve in their sorted 
-                            position (left side all element are small and right 
+                            the element arrange them themselve in their sorted
+                            position (left side all element are small and right
                             side all element is greater)
 
     In Selection sort we select position(first position of list) and finding smallest element
@@ -20,10 +20,10 @@
     Let find sorted position of element 50  (first element of list)
 
     pivot element -> 50
-    
+
         50, 70, 60, 90, 40, 80, 10, 20, 30, infinity
             i----------------------------j
-        
+
         50, 30, 60, 90, 40, 80, 10, 20, 70, infinity
                 i--------------------j
 
@@ -38,7 +38,7 @@
         40, 30, 20, 10, (50), 80, 90, 60, 70, infinity
                          |
                          |
-                partitioning the list      
+                partitioning the list
     (left side all smaller right side all greater)
     again sort first element of two list (left of pivot) and right of pivot
 
@@ -49,7 +49,7 @@
 
     best case  -> if partitioning element is at middle (Time = O(nlogn) )
 
-    worst case -> if partitioning is at end (Time = O(n^2) ) 
+    worst case -> if partitioning is at end (Time = O(n^2) )
 
     Avg. case ->    O(nlogn)
 
@@ -116,15 +116,15 @@ void Print(int array[], int size)
 int main()
 {
     int arr[] = {5, 3, 7, 9, 1, 10, 4, 2, 6, 8, INT32_MAX};
-    int size = sizeof(arr) / sizeof(arr[0]) - 1; // size is 1 less then actual size
+    int size = sizeof(arr) / sizeof(arr[0]);
 
     cout << "Before sorting " << endl;
-    Print(arr, size);
+    Print(arr, size - 1);
 
-    Quick_sort(arr, 0, size);
+    Quick_sort(arr, 0, size - 1);
 
     cout << "\nAfter sorting " << endl;
-    Print(arr, size);
+    Print(arr, size - 1);
 
     return 0;
 }
