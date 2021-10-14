@@ -1,4 +1,6 @@
 /*
+    the average time complexity of quick shot = O(nlogn) that one of the reason 
+    it consider best sorting algorith and fastest algorithm
 
     why called quick sort -> thats not mean its name is quick so it sort faster
                             the element arrange them themselve in their sorted 
