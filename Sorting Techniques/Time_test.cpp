@@ -1,4 +1,6 @@
 //  May be your pc will hang :-)
+// for calculating approx actual time very very large time function run (billions times) at different time intervals (more then hour) 
+// at different temperature and take average of all
 
 #include <iostream>
 #include <algorithm>
@@ -349,125 +351,14 @@ void Radix_Sort(int Array[], int size)
     delete b;
 }
 
-auto get_time1(int arr[], int size)
-{
-    long int i = 0;
-    double sum = 0;
-    while (i < 100000000)
-    {
-        auto start = high_resolution_clock::now();
-        Bubble_Sort(arr, size);
-        auto stop = high_resolution_clock::now();
-        auto duration = duration_cast<nanoseconds>(stop - start);
-        sum = sum + duration.count();
-        i++;
-    }
-    cout << (double)sum / 100000000 << " nanoseconds" << endl;
-}
-
-auto get_time2(int arr[], int size)
-{
-    long int i = 0;
-    double sum = 0;
-    while (i < 100000000)
-    {
-        auto start = high_resolution_clock::now();
-        Insertion_Sort(arr, size);
-        auto stop = high_resolution_clock::now();
-        auto duration = duration_cast<nanoseconds>(stop - start);
-        sum = sum + duration.count();
-        i++;
-    }
-    cout << (double)sum / 100000000 << " nanoseconds" << endl;
-}
-
-auto get_time3(int arr[], int size)
-{
-    long int i = 0;
-    double sum = 0;
-    while (i < 100000000)
-    {
-        auto start = high_resolution_clock::now();
-        Selection_Sort(arr, size);
-        auto stop = high_resolution_clock::now();
-        auto duration = duration_cast<nanoseconds>(stop - start);
-        sum = sum + duration.count();
-        i++;
-    }
-    cout << (double)sum / 100000000 << " nanoseconds" << endl;
-}
-auto get_time4(int arr[], int size)
-{
-    long int i = 0;
-    double sum = 0;
-    while (i < 100000000)
-    {
-        auto start = high_resolution_clock::now();
-        Quick_sort(arr, 0, size - 1);
-        auto stop = high_resolution_clock::now();
-        auto duration = duration_cast<nanoseconds>(stop - start);
-        sum = sum + duration.count();
-        i++;
-    }
-    cout << (double)sum / 100000000 << " nanoseconds" << endl;
-}
-
-auto get_time5(int arr[], int size)
-{
-    long int i = 0;
-    double sum = 0;
-    while (i < 100000000)
-    {
-        auto start = high_resolution_clock::now();
-        Iterative_Merge_Sort(arr, size);
-        auto stop = high_resolution_clock::now();
-        auto duration = duration_cast<nanoseconds>(stop - start);
-        sum = sum + duration.count();
-        i++;
-    }
-    cout << (double)sum / 100000000 << " nanoseconds" << endl;
-}
-
-auto get_time6(int arr[], int size)
-{
-    long int i = 0;
-    double sum = 0;
-    while (i < 100000000)
-    {
-        auto start = high_resolution_clock::now();
-        Recursive_Merge_Sort(arr, 0, size - 1);
-        auto stop = high_resolution_clock::now();
-        auto duration = duration_cast<nanoseconds>(stop - start);
-        sum = sum + duration.count();
-        i++;
-    }
-    cout << (double)sum / 100000000 << " nanoseconds" << endl;
-}
-
-auto get_time7(int arr[], int size)
-{
-    long int i = 0;
-    double sum = 0;
-    while (i < 100000000)
-    {
-        auto start = high_resolution_clock::now();
-        Count_Sort(arr, size);
-        auto stop = high_resolution_clock::now();
-        auto duration = duration_cast<nanoseconds>(stop - start);
-        sum = sum + duration.count();
-        i++;
-    }
-    cout << (double)sum / 100000000 << " nanoseconds" << endl;
-}
-
-auto get_time8(int arr[], int size)
+auto get_time(int arr[], int size, void (*func)(int[], int))
 {
     long int i = 0;
     double sum = 0;
     while (i < 10000000)
     {
         auto start = high_resolution_clock::now();
-        Bin_Sort(arr, size);
+        func(arr, size);
         auto stop = high_resolution_clock::now();
         auto duration = duration_cast<nanoseconds>(stop - start);
         sum = sum + duration.count();
@@ -476,14 +367,14 @@ auto get_time8(int arr[], int size)
     cout << (double)sum / 10000000 << " nanoseconds" << endl;
 }
 
-auto get_time9(int arr[], int size)
+auto get_time_r(int arr[], int size, void (*func)(int[], int, int))
 {
     long int i = 0;
     double sum = 0;
     while (i < 10000000)
     {
         auto start = high_resolution_clock::now();
-        Radix_Sort(arr, size);
+        func(arr, 0, size - 1);
         auto stop = high_resolution_clock::now();
         auto duration = duration_cast<nanoseconds>(stop - start);
         sum = sum + duration.count();
@@ -492,43 +383,87 @@ auto get_time9(int arr[], int size)
     cout << (double)sum / 10000000 << " nanoseconds" << endl;
 }
 
+int *array(int x, int size)
+{
+    int *p = new int[size];
+
+    if (x == 1)
+    {
+        for (int i = 0; i < size; i++)
+            p[i] = i + 1;
+    }
+    else if (x == 2)
+    {
+        for (int i = size, j = 0; j < size; i--, j++)
+            p[j] = i;
+    }
+    else if (x == 3)
+    {
+        int j;
+        for (int i = 0; i < size; i++)
+        {
+            j = i;
+            p[i] = j + 2;
+            i++;
+            p[i] = j + 1;
+        }
+    }
+
+    return p;
+}
 int main()
 {
-    // int arr[] = {5, 4846, 3, 75, 874, 9, 1, 484646162, 10, 4, 2, 6, 48978, 67894, 4873, 489, 64, 11, 8, 12, 7, 15};
-    // int arr[] = {20, 19, 18, 17, 16, 15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1};
-    int arr[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20};
-    // int arr[] = {2, 1, 4, 3, 6, 5, 8, 7, 10, 9, 12, 11, 14, 13, 16, 15, 18, 17, 20, 19};
-    int size = sizeof(arr) / sizeof(arr[0]);
+    int size = 20;
+    // 1 for sorted array
+    // 2 for reverse sorted array
+    // 3 for average array
+    int Case = 2;
+    int *arr = array(Case, size);
 
-    cout << "Before sorting " << endl;
+
+    cout << "Array = ";
     Print(arr, size);
+    cout<<endl;
+
 
     cout << "Bubble Sort          : ";
-    get_time1(arr, size);
+    get_time(arr, size, &Bubble_Sort);
 
+
+    arr = array(Case, size);
     cout << "Insertion Sort       : ";
-    get_time2(arr, size);
+    get_time(arr, size, &Insertion_Sort);
+    
 
+    arr = array(Case, size);
     cout << "Selection Sort       : ";
-    get_time3(arr, size);
+    get_time(arr, size, &Selection_Sort);
 
+
+    arr = array(Case, size);
     cout << "Quick Sort           : ";
-    get_time4(arr, size);
+    get_time_r(arr, size, &Quick_sort);
 
-    cout << "Merge iterative Sort : ";
-    get_time5(arr, size);
 
+    arr = array(Case, size);
     cout << "Merge recursive Sort : ";
-    get_time6(arr, size);
+    get_time_r(arr, size, &Recursive_Merge_Sort);
 
+
+    arr = array(Case, size);
+    cout << "Merge iterative Sort : ";
+    get_time(arr, size, &Iterative_Merge_Sort);
+
+
+    arr = array(Case, size);
     cout << "count Sort           : ";
-    get_time7(arr, size);
+    get_time(arr, size, &Count_Sort);
 
     // cout << "Bucket/Bin Sort      : ";
-    // get_time8(arr, size);
+    // get_time(arr, size,&Bin_Sort);
 
     // cout << "Radix Sort           : ";
-    // get_time9(arr, size);
+    // get_time(arr, size,&Radix_Sort);
 
     cout << "After sorting " << endl;
     Print(arr, size);
