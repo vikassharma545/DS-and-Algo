@@ -33,5 +33,14 @@ Close Hashing:-
 3.Double Hashing
 
 
-NOTES :- hash can be different for different data its programmer responsibility to anylyse
-         data and create hash fun so minimum time take in searching  
+Imp NOTES :- hash function can be different for different data its programmer responsibility
+             to anylyse data and create hash fun so minimum time take in searching  
+
+
+idea for hashing function
+
+1. mod -> above function
+
+2. MidSquar -> squar the digit and their mid value give index
+
+3. folding  -> dividing digit of into pieaces and their sum , mod etc. give index
