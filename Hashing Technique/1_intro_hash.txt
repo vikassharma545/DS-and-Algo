@@ -1,0 +1,37 @@
+    why hashing use ??
+
+    for searching a element from a list in less time
+
+ex:-
+
+    linear search        ->  Time ->     O(n^2) 
+
+    Binary search        ->  Time ->     O(nlogn)
+
+    search using hashing ->  Time ->     O(n) 
+
+
+Hash function is use to mapping key into hash table 
+(i.e hash function give index where we store element in hash table)
+
+
+ideal hash function           -->  h(x) = x
+brawback of ideal hash fun()  -->  use large amount space
+
+
+modulus hash function           -->  h(x) = x % 10
+brawback of modulus hash fun()  -->  collision(i.e two element can give same index of hash table)
+
+resolving collision :-
+
+Open Hashing:-
+chaining
+
+Close Hashing:-
+1.Linear Probing
+2.Quadric Probing
+3.Double Hashing
+
+
+NOTES :- hash can be different for different data its programmer responsibility to anylyse
+         data and create hash fun so minimum time take in searching  
