@@ -18,7 +18,7 @@ if height is given
 
 if Nodes is given
 
-    Min height = (log base2)(n+1) -1
+    Min height = Ceiling[(log base 2)(n+1) - 1] or floor[(log base 2)(n)]  floor --> integer part
 
     max height = (n-1)/2
 

@@ -13,12 +13,6 @@
 
 
 
-// Max height of Binary tree by given node 'n'
-
-    Max height = 2^n-1
-
-
-
 
 //  Catalan number another Formula
 
@@ -39,7 +33,7 @@
 
 // Min and Max height of binary tree in given nodes
 
-    Min height = (log base 2)(n+1) - 1
+    Min height = Ceiling[(log base 2)(n+1) - 1] or floor[(log base 2)(n)]  floor --> integer part
 
     Max height = n-1
 
