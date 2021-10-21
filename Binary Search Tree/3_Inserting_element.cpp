@@ -75,21 +75,39 @@ Tree_Node *insert_recursive(Tree_Node *p, int key)
     return p;
 }
 
+void print2D(Tree_Node *root, int space)
+{
+    if (root == NULL)
+        return;
+    static int COUNT = 7;
+    space += COUNT;
+    print2D(root->Rchild, space);
+
+    cout << endl;
+    for (int i = COUNT; i < space; i++)
+        cout << " ";
+    cout << root->data << "\n";
+
+    print2D(root->Lchild, space);
+}
+
 int main()
 {
-    root = insert_iterative(root, 30);
-    insert_iterative(root, 10);
-    insert_iterative(root, 20);
-    insert_iterative(root, 20);
-    insert_iterative(root, 50);
-    insert_recursive(root, 10);
-    insert_recursive(root, 45);
-    insert_recursive(root, 15);
+    root = insert_recursive(root, 10);
+    insert_recursive(root, 30);
+    insert_recursive(root, 20);
+    insert_recursive(root, 60);
+    insert_recursive(root, 35);
+    insert_recursive(root, 50);
     insert_recursive(root, 40);
-    
+    insert_recursive(root, 25);
+    insert_recursive(root, 10);
+
     cout << "Inorder" << endl;
     Inorder(root);
     cout << endl;
+
+    print2D(root,0);
 
     return 0;
 }
