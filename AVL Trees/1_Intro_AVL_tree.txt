@@ -2,7 +2,25 @@ AVL tree : Height Balanced Binary Search Tree
 
 Balanced Factor = height of left subtree - height of right subtree
 
-if |Balanced Factor| = |hl -hr| <= 1 ---> tree Balanced
 
-if |Balanced Factor| = |hl -hr| > 1 ---> tree not Balanced
+for every Node in tree :- 
+
+if |Balanced Factor| = |hl - hr| <= 1 and hl-hr = {-1,0,1} ---> tree Balanced
+
+if |Balanced Factor| = |hl - hr| > 1 ---> tree not Balanced  (Imbalanced)
+
+
+We Balanced Tree by rotation :-
+
+1. LL-rotation :- rotate from left to right like thread
+2. RR-rotation :- rotate from right to left like thread
+3. LR-rotation :- rotate right to left then after left to right
+4. RL-rotation :- rotate left to right then after right to left
+
+
+
+
+
+
+
 
