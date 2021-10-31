@@ -33,6 +33,13 @@ void Display(Node *p)
     cout << endl;
 }
 
+void Reverse_Display(Node * p)
+{
+    if(p->Next)
+        p = p->Next;
+    cout << p->Data << " ";
+}
+
 void Reverse_element(Node *p)
 {
     Node *temp = p;
