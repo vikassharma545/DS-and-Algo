@@ -70,8 +70,14 @@ void Reverse_Linking(Node *&head_ref)
         q = p;
         p = p->Next;
 
-        // point middle next to last
+        // point middle next (q->next) to last (r) for singly linked list
         q->Next = r; 
+
+        /*
+            for double linked list
+        // swap the previous and next pointer of middle node (q)
+        // swap(q->previous,q->Next);
+        */
     }
 
     head_ref = q; // at lastly head = middle;
