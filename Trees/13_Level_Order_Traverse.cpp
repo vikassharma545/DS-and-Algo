@@ -62,25 +62,18 @@ void Create(Tree_Node *p)
 void Level_traverse(Tree_Node *t)
 {
     queue<Tree_Node *> q;
-
-    cout << t->data << " ";
     q.push(t);
 
     while (!q.empty())
     {
         t = q.front();
         q.pop();
+        cout << t->data << " ";
 
         if (t->Lchild)
-        {
-            cout << t->Lchild->data << " ";
             q.push(t->Lchild);
-        }
         if (t->Rchild)
-        {
-            cout << t->Rchild->data << " ";
             q.push(t->Rchild);
-        }
     }
 }
 
