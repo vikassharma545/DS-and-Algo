@@ -108,12 +108,18 @@ int main()
         }
     }
 
+    cout << "list 1     : ";
     Display(Head1);
+    cout << "list 2     : ";
     Display(Head2);
 
     Node *Head3 = Merging(Head1, Head2);
+    cout << "Merge list : ";
     Display(Head3);
-    Display(Head1);   // why head1 linkedlist change ?? --> see parameter_passing.cpp
+
+    cout << "list 1     : ";
+    Display(Head1); // why head1 linkedlist change ?? --> see parameter_passing.cpp
+    cout << "list 2     : ";
     Display(Head2);
 
     return 0;
