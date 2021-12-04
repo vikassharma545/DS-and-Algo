@@ -1,0 +1,44 @@
+    important points :-
+
+1. Height Balanced Binary Search Tree, similar to 2-3-4 Tree
+
+2. Every node is either black or red
+
+3. root of Tree is always black
+
+4. NULL node is also black
+
+5. Number of black on path from root to leaf are same
+
+6. No two consecutive red present in Tree
+
+7. New inserted node is red
+
+8. Height in between,   log(n) <= Height <= 2log(n)
+
+
+
+
+****Insertion****
+
+Case 1 : Uncle is Red --> Recoloring
+
+                grand paresnts(black)                                     grand parents(red)
+                /           \                                            /             \
+               /             \                   Recoloring             /               \                 
+           uncle            paresnts(red)       ===========>        uncle(black)      parents(black)
+           (red)                \                                                         \  
+                                 \                                                         \         
+                              New node(red)                                             New Node(red)
+
+
+
+Case 2 : Uncle is black ---> Rotation
+
+            grand paresnts(black)                                          parents(red)
+                /           \                                             /           \
+               /             \                 Rotation                  /             \                 
+           uncle            paresnts(red)     ==========>    grand parents(black)     New Node(black)
+           (black)              \                                      /                 
+                                 \                                    /                              
+                              New node(red)                       New Node
