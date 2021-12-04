@@ -1,0 +1,12 @@
+    Important Point :-
+
+1. Heap is a Compelete Binary Tree (height always be long(n) )
+
+2. Dublicates also allow
+
+3. Heap is not use for searching elements
+
+4. Max Heap :-  every node element is greater then or equal to its desendant
+
+5. Min Heap :-  every node element is smaller then or equal to its desendant
+
