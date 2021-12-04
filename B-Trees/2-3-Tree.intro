@@ -1,0 +1,36 @@
+    Important point :-
+
+1. Multiway search tree or m-way tree of degree 3
+
+2. search tree So smallest element always left to parents and greater element right to parents
+        (Like BST)
+
+3. B- tree
+
+4. all leaf-node at same level
+
+5. Every node must have ceiling[n/2] = [3/2] = 2 childrens
+
+6. atmost one node have two element and 3 child (thats why called 2-3 trees)
+
+
+                            | k1 | k2 |
+                           /     |     \
+                          /      |      \
+                       |l|m|   |n|o|   |p|q|
+
+
+here, 
+
+        l,m < k1
+        k1 < n,o < k2
+  and,  p,q > k2
+
+
+
+7. Insertion, Involve spliting nodes upwards
+
+8. Deletion, Involve simply Delete, borrow from left or right siblings, merge with left and right siblings
+
+
+

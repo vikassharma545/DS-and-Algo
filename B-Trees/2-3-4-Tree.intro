@@ -1,0 +1,20 @@
+ importants points :-
+
+1. B-Tree of degree 4
+
+2. every node must have ceiling[4/2] = 2 childrens
+
+3. leaf at same levels
+
+4. every node atmost 3 element and 4 childrens
+
+
+                            |  k1  |   k2   |  k3  |
+                           /       |        |       \
+                          /        |        |        \
+                    |l|m|n|     |o|p|q|   |r|s|t|     |u|v|w|
+
+
+
+
+
