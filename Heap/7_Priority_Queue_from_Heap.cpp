@@ -32,7 +32,7 @@ public:
     }
 
 
-    int pop() // here n is size of array not index od deleting element
+    int pop() 
     {
         auto size = vec.size();
         int x, i, j;
