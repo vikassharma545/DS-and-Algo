@@ -1,4 +1,4 @@
-// Lower triangular matix : M[i,j] = 0 if i>j, else M[i,j] != 0 if i<=j
+// Upper triangular matix : M[i,j] = 0 if i>j, else M[i,j] != 0 if i<=j
 //
 // Number of non-zero elements = n(n+1)/2
 //
