@@ -27,7 +27,7 @@ Ancestors -->       all node from that node to root node   Ex- for |M| -> |J| |F
 
 degree -->          no of attach node downward    Ex- |B| have 2 degree,   |D| has 3 degree
 
-Leaf, external, terminal node  -->              Node having degree zero
+Leaf, external, terminal node  -->              Node having degree zero, ->  |M|, |N|, |O| 
 
 non leaf, internal, non terminal node -->       Node having degree greater then zero
 

@@ -44,7 +44,7 @@
 
     Min nodes = h+1
 
-    max node = 2^h+1 - 1
+    max node = 2^(h+1) - 1
 
 
 

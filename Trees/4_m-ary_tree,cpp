@@ -48,7 +48,6 @@ if Node are given
 
 // internal and external Nodes
 
-
     external node =  ((m-1) * internal node) + 1
 
     always true//

@@ -1,4 +1,4 @@
-Full binary tree :   binary tree of height h having maximum number of tree
+Full binary tree :   binary tree of height h having maximum number of nodes
 
                                     height
                     |A|               0
